@@ -3,7 +3,7 @@ class UsersController < ApplicationController
 #signup
   get '/signup' do
     if logged_in?
-      redirect '/index'
+      redirect '/ideas'
     else
       erb :'users/signup'
     end

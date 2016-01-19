@@ -6,7 +6,7 @@ class IdeasController < ApplicationController
       @ideas = Idea.all
       erb :'ideas/index'
     else
-      redicted '/login'
+      redirect '/login'
     end
   end
 
@@ -23,8 +23,7 @@ class IdeasController < ApplicationController
     if !logged_in?
       erb :error
     else
-      @user = current_user
-      @user.ideas.create(params)
+      Idea.create(params)
       redirect "/ideas"
     end
   end
