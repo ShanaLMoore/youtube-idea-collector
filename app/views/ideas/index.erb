@@ -1,0 +1,22 @@
+<div>
+
+  <h2>Welcome, <%= User.find(session[:user_id]).username.capitalize %></h2><br><br>
+
+  <% if @ideas.nil? %>
+      <p>You have no ideas!</p>
+  <% else %>
+    <ul>
+      <% @ideas.each do |idea| %>
+      <li><a href="/ideas/<%=idea.id %>"><%=idea.name%></a></li>
+      <% end %>
+    </ul>
+
+<h3>Menu</h3>
+<ul>
+  <li><a href="/ideas/new">Make a New Idea!</a></li>
+  <li><a href="/logout"> Log Out </a></li>
+</ul>
+
+  <% end %>
+
+</div>
