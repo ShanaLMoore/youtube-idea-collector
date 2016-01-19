@@ -37,16 +37,6 @@ class UsersController < ApplicationController
       erb :error
   end
 
-#show
-  get '/users/:id' do
-    @current_user = User.find_by_id(session[:user_id])
-    if @current_user
-      erb :'users/show'
-    else
-      erb :error
-    end
-  end
-
   # LOGOUT
   get '/logout' do
     if logged_in?
