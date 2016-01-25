@@ -1,6 +1,6 @@
 <div>
 
-  <h2>Welcome,  <%= User.find(session[:user_id]).username.capitalize %></h2>
+  <h2>Welcome, <%= User.find(session[:user_id]).username.capitalize %></h2>
 
   <% if @ideas.nil? %>
       <p>You have no ideas!</p>

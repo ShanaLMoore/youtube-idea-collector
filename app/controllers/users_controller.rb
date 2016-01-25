@@ -1,49 +1,57 @@
 class UsersController < ApplicationController
 
+
+get '/users/:id' do
+  if !logged_in?
+    redirect '/ideas'
+  end
+
+  @user = User.find(params[:id])
+  if !@user.nil? && @user == current_user
+    erb :'ideas/show'
+  else
+    redirect '/ideas'
+  end
+end
+
+
 #signup
   get '/signup' do
-    if logged_in?
-      redirect '/ideas'
-    else
       erb :'users/signup'
-    end
   end
 
   post '/signup' do 
     if params[:username] == "" || params[:password] == ""
       redirect to '/signup'
-    else
-      @user = User.create(:username => params[:username], :password => params[:password])
+    else    
+      @user = User.new(:username => params[:username], :password => params[:password])
+      @user.save
       session[:user_id] = @user.id
+    end
       redirect to '/ideas'
     end
-  end
 
 #login
   get '/login' do 
-    if logged_in?
-      redirect '/ideas'
-    else
       erb :'users/login'
-    end
   end 
 
   post '/login' do
-    @user = User.find_by(:username => params[:username])
-    if @user != nil && @user.password == params[:password]
+    if @user = User.find_by(:username => params[:username], :password => params[:password])
       session[:user_id] = @user.id
       redirect to '/ideas'
-    end 
+    else
       erb :error
+    end
   end
 
   # LOGOUT
   get '/logout' do
-    if logged_in?
-      session.clear
-      redirect '/login'
+    if session[:user_id] != nil
+      session.destroy
+      redirect to '/login'
     else
-      redirect '/'
+      redirect to '/'
     end
   end
 end
