@@ -2,7 +2,7 @@ class IdeasController < ApplicationController
 
 #index
   get '/ideas' do
-      @ideas = current_user.ideas
+      @ideas = Idea.all
       erb :'ideas/index'
   end
 
@@ -23,7 +23,7 @@ class IdeasController < ApplicationController
   #SHOW IDEA
   get '/ideas/:id' do
     if logged_in?
-      @ideas = current_user.ideas
+      @ideas = Idea.find(params[:id])
       erb :'ideas/show'
     else
       redirect '/login'
