@@ -3,7 +3,7 @@
   <h2>Welcome, <%= User.find(session[:user_id]).username.capitalize %></h2>
 
     <ul>
-      <% @user.ideas.each do |idea| %>
+      <% ideas.each do |idea| %>
       <li><a href="/ideas/<%=idea.id %>"><%=idea.name%></a></li>
       <% end %>
     </ul>

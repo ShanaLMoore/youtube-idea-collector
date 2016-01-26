@@ -2,21 +2,13 @@ class IdeasController < ApplicationController
 
 #index
   get '/ideas' do
-    if logged_in?
-      @ideas = Idea.all
+      @ideas = current_user.ideas
       erb :'ideas/index'
-    else
-      redirect '/login'
-    end
   end
 
-#new
+#NEW IDEA
   get '/ideas/new' do
-    if logged_in?
       erb :'ideas/new'
-    else
-      redirect '/login'
-    end
   end
 
   post '/ideas' do
@@ -28,18 +20,17 @@ class IdeasController < ApplicationController
     end
   end
 
-  #show
+  #SHOW IDEA
   get '/ideas/:id' do
     if logged_in?
-      @ideas = Idea.all
-      @idea = Idea.find_by_id(params[:id])
+      @ideas = current_user.ideas
       erb :'ideas/show'
     else
       redirect '/login'
     end
   end
 
-  #edit
+  #EDIT IDEA
   get '/ideas/:id/edit' do
     if logged_in?
       @idea = Idea.find_by_id(params[:id])
@@ -59,7 +50,7 @@ class IdeasController < ApplicationController
     end
   end
 
-  #detroy
+  #DELETE IDEA
   post '/ideas/:id/delete' do
     if logged_in?
       @idea = Idea.find_by_id(params[:id])
