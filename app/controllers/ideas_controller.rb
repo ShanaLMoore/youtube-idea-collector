@@ -2,7 +2,7 @@ class IdeasController < ApplicationController
 
 #index
   get '/ideas' do
-      @ideas = Idea.all
+      @ideas = current_user.ideas
       erb :'ideas/index'
   end
 

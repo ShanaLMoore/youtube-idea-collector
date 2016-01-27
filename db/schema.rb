@@ -14,14 +14,14 @@
 ActiveRecord::Schema.define(version: 20160125195026) do
 
   create_table "ideas", force: :cascade do |t|
-    t.string "name"
-    t.string "content"
+    t.string  "name"
+    t.string  "content"
+    t.integer "user_id"
   end
 
   create_table "users", force: :cascade do |t|
-    t.string  "username"
-    t.string  "password"
-    t.integer "user_id"
+    t.string "username"
+    t.string "password"
   end
 
 end
