@@ -15,7 +15,7 @@ class IdeasController < ApplicationController
     if !logged_in?
       erb :error
     else
-      Idea.create(params)
+      Idea.create(params)    
       redirect "/ideas"
     end
   end
@@ -23,7 +23,7 @@ class IdeasController < ApplicationController
   #SHOW IDEA
   get '/ideas/:id' do
     if logged_in?
-      @ideas = Idea.find(params[:id])
+      @idea = Idea.find(params[:id])
       erb :'ideas/show'
     else
       redirect '/login'
