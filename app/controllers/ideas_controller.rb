@@ -15,7 +15,7 @@ class IdeasController < ApplicationController
     if !logged_in?
       erb :error
     else
-      Idea.create(params)    
+      @ideas = current_user.ideas.create(params)    
       redirect "/ideas"
     end
   end
