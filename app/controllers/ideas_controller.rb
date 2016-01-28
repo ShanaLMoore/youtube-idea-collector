@@ -2,13 +2,13 @@ class IdeasController < ApplicationController
 
 #index
   get '/ideas' do
-      @ideas = current_user.ideas
-      erb :'ideas/index'
+    @ideas = current_user.ideas
+    erb :'ideas/index'
   end
 
 #NEW IDEA
   get '/ideas/new' do
-      erb :'ideas/new'
+    erb :'ideas/new'
   end
 
   post '/ideas' do
