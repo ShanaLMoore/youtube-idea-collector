@@ -17,7 +17,7 @@ class IdeasController < ApplicationController
     end
 
     if params[:name].empty? || params[:content].empty?
-      flash[:notice] = "You can't submit empty fields! Please try"
+      flash[:notice] = "You can't submit empty fields! Please try again!"
       redirect "/ideas/new"
     else
       @ideas = current_user.ideas.create(params)    
