@@ -1,16 +1,16 @@
   <h1><%= @idea.name %></h1>
   <h3>Idea Description: <br /><br /><%= @idea.content %></h3><br /><br />
-  <ul>
-   <li><a href="/ideas"><button type="submit" value="ideas">All Ideas</button></a></li>
+    <ul>
+     <li><a href="/ideas"><button type="submit" value="ideas">All Ideas</button></a></li>
 
-    <li><a href="/ideas/new"><button type="submit" value="new">New Idea</button></a></li>
+      <li><a href="/ideas/new"><button type="submit" value="new">New Idea</button></a></li>
 
-    <li><a href="/ideas/<%=@idea.id%>/edit"><button type="submit" value="edit">Edit Idea</button></a></li>
+      <li><a href="/ideas/<%=@idea.id%>/edit"><button type="submit" value="edit">Edit Idea</button></a></li>
 
-    <li><form method="POST" action="/ideas/<%=@idea.id%>/delete" >
-    <button type="submit" value="delete">Delete Idea</button></li>
-    </form>
-  </ul>
+      <li><form method="POST" action="/ideas/<%=@idea.id%>/delete" >
+      <button type="submit" value="delete">Delete Idea</button></li>
+      </form>
+    </ul>
   <br />
   <br />
 

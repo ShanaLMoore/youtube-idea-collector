@@ -1,5 +1,4 @@
 <div>
-
   <h2>Welcome, <%= User.find(session[:user_id]).username.capitalize %></h2>
 
     <ul>
@@ -9,6 +8,7 @@
     </ul>
 
 <h3>Menu</h3>
+
 <div>
   <a href="/ideas/new"><button type="submit" value="new_idea">Make a New Idea!</button></a><br>
   <a href="/logout"><button type="submit" value="log_out">Log Out</button></a>

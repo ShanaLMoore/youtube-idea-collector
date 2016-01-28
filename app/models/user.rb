@@ -1,4 +1,4 @@
 class User < ActiveRecord::Base
-  has_many :ideas
-  validates_presence_of :username, :password
+  has_many :ideas # just adding methods. How many methods?
+  has_secure_password
 end 
