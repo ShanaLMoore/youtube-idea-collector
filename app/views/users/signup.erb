@@ -1,5 +1,9 @@
 <h1>Sign Up!</h1>
 
+<% if flash[:notice] %>
+  <p class="notice"><%= flash[:notice] %></p>
+<% end %>
+
 <form method="POST" action="/signup" >
   <p>Userame: <input type="text" name="username"></p>
   <p>Password: <input type="text" name="password"></p>

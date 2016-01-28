@@ -1,5 +1,9 @@
 <h1>Edit <%= @idea.name %></h1>
 
+<% if flash[:notice] %>
+  <p class="notice"><%= flash[:notice] %></p>
+<% end %>
+
 <form action="/ideas/<%=@idea.id %>" method="POST">
   <label> Idea Name </label>
   <input type="text" name="name" value="<%=@idea.name %>"> </br>

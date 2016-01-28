@@ -21,7 +21,8 @@ class UsersController < ApplicationController
 
   post '/signup' do 
     if params[:username] == "" || params[:password] == ""
-      redirect to '/signup'
+      flash[:notice] = "You can't submit empty fields! Please try again!"
+      redirect "/signup"
     else    
       @user = User.new(:username => params[:username], :password => params[:password])
       @user.save
