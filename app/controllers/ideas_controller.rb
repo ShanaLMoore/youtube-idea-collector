@@ -48,10 +48,16 @@ class IdeasController < ApplicationController
   post '/ideas/:id' do
     if logged_in?
       @idea = Idea.find_by_id(params[:id])
-      @idea.update(:name => params[:name], :content => params[:content])
-      redirect '/ideas'
     else
       redirect '/login'
+    end
+
+    if params[:name].empty? || params[:content].empty?
+      flash[:notice] = "You can't submit empty fields! Please try again!"
+      erb :'ideas/edit'
+    else
+      @idea.update(:name => params[:name], :content => params[:content])
+      redirect '/ideas'
     end
   end
 
