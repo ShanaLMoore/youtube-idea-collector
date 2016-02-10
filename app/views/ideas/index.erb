@@ -1,18 +1,17 @@
 <div>
-  <h2>Welcome, <%= User.find(session[:user_id]).username.capitalize %></h2>
-
-    <ul>
+  <img src="images/hand_drawn.png" id="hand-drawn-logo">
+  <h1>Welcome, <%= User.find(session[:user_id]).username.capitalize %>!</h1>
+  <hr>
+    <ol>
       <% @ideas.each do |idea| %>
-      <li><a href="/ideas/<%=idea.id%>"><%= idea.name %></a></li>
+      <li><a href="/ideas/<%=idea.id%>" id="idea"><%= idea.name %></a></li>
       <% end %>
-    </ul>
-
-<h3>Menu</h3>
-
-<div>
-  <a href="/ideas/new"><button type="submit" value="new_idea">Make a New Idea!</button></a><br>
-  <a href="/logout"><button type="submit" value="log_out">Log Out</button></a>
+    </ol>
+  <hr>
 </div>
 
-</div>
+  <h2>Menu:</h2>
+    <a href="/ideas/new"><button type="submit" value="new_idea" class="submit">Make a New Idea!</button></a><br>
+    <a href="/logout"><button type="submit" value="log_out" class="submit">Log Out</button></a>
+
 

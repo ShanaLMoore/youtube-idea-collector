@@ -1,11 +1,15 @@
-<h1>Sign Up!</h1>
+<h1>Organize Your Ideas for FREE!</h1><br>
+
+<img src="images/Youtube-play-icon.png" id="play-icon"><br>
+
+<h1>Sign Up!</h1><br>
 
 <% if flash[:notice] %>
   <p class="notice"><%= flash[:notice] %></p>
 <% end %>
 
 <form method="POST" action="/signup" >
-  <p>Userame: <input type="text" name="username"></p>
-  <p>Password: <input type="text" name="password"></p>
-  <input type="submit">
+  <input type="text" name="username" placeholder="Username">
+  <input type="text" name="password" placeholder="Password"><br><br>
+  <input type="submit" class="submit">
 </form>

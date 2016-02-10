@@ -1,15 +1,15 @@
-<h1>Edit <%= @idea.name %></h1>
+<h1>Edit <%= @idea.name.upcase %>!</h1><br>
 
 <% if flash[:notice] %>
   <p class="notice"><%= flash[:notice] %></p>
 <% end %>
 
 <form action="/ideas/<%=@idea.id %>" method="POST">
-  <label> Idea Name </label>
-  <input type="text" name="name" value="<%=@idea.name %>"> </br>
+  <label> Idea Name: </label>
+  <input type="text" name="name" value="<%=@idea.name %>">
 
-  <label> Idea Content </label>
-  <input type="text" name="content" value="<%=@idea.content %>"> </br>
+  <label> Idea Description: </label>
+  <input type="text" name="content" value="<%=@idea.content %>"> </br><br>
 
-  <input type="submit" value="Edit Idea">
+  <input type="submit" value="Edit Idea" class="submit">
 </form>
